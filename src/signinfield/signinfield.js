@@ -4,16 +4,14 @@ import Signup from "../signup/signup.js";
 import "./signinfield.css";
 
 export default class Signinfield extends Component {
-    constructor(){
-        super();
-    }
 
-    render(){
+    render() {
         return (
             <div>
                 <div id="signInField">
-                    <Signin/>
-                    <Signup/>
+                    <Signin />
+                    <br />
+                    <Signup />
                 </div>
             </div>
         )

@@ -10,7 +10,6 @@ export default class Textsender extends Component {
         this.state = {
             myNumber:"+16309622093"
         }
-
     }
 
 sendSms(){

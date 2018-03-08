@@ -49,7 +49,7 @@ onNumberChange = (e) =>{
         return (
             <div>
                 <input type="text" name="username" placeholder="username" value={this.state.username} onChange={this.onUserChange}/>
-                <input type="text" name="password" placeholder="password" value={this.state.password} onChange={this.onPasswordChange}/>
+                <input type="password" name="password" placeholder="password" value={this.state.password} onChange={this.onPasswordChange}/>
                 <input type="text" name="number" placeholder="phone number" value={this.state.number} onChange={this.onNumberChange}/>
 
                 <button id="signUpBtn" onClick={this.signUp}>Sign Up</button>
