@@ -1,5 +1,9 @@
 .App {
   text-align: center;
+  background-image: url("https://foodiefactor.com/wp-content/uploads/2017/06/fried-egg-breakfast-1000x750.jpg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+
 }
 
 .App-logo {
@@ -25,4 +29,9 @@
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+.fb-page {
+  padding:20px;
+  padding-bottom: 300px;
 }

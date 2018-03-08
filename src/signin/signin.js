@@ -19,6 +19,8 @@ export default class Signin extends Component {
     signIn() {
         axios.post("/signInData", { username: this.state.username, password: this.state.password }).then((result) => {
             console.log(result.data.message)
+            localStorage.setItem('token', result.data.myToken);
+
             this.setState({
                 number: result.data.number
             })
@@ -32,8 +34,8 @@ export default class Signin extends Component {
     // }
 
     sendSms() {
-        axios.post("/text", { number: this.state.number }).then((result) => {
-            console.log(result.data)
+        axios.post("/text", { number: this.state.number, token: localStorage.getItem("token") }).then((result) => {
+           console.log(result.data)
         })
     }
 
