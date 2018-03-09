@@ -1,0 +1,49 @@
+.nav-item {
+    color:white;
+    background: rgba(28, 85, 158, 0.800);
+    text-shadow: 1px 1px black;
+    font-style: oblique;
+    font-weight: bold;
+}
+
+.nav-item:hover {
+    color:grey;
+    background: rgba(28, 85, 158, 0.800);
+    text-shadow: 1px 1px black;
+    font-style: oblique;
+    font-weight: bold;
+    border:none !important
+}
+
+.active.nav-link {
+    color:white !important;
+    background: rgba(28, 85, 158, 0.800) !important;
+    /* text-shadow: 0 1px 0 #ccc, 
+               0 2px 0 #c9c9c9,
+               0 3px 0 #bbb,
+               0 4px 0 #b9b9b9,
+               0 5px 0 #aaa,
+               0 6px 1px rgba(0,0,0,.1),
+               0 0 5px rgba(0,0,0,.1),
+               0 1px 3px rgba(0,0,0,.3),
+               0 3px 5px rgba(0,0,0,.2),
+               0 5px 10px rgba(0,0,0,.25),
+               0 10px 10px rgba(0,0,0,.2),
+               0 20px 20px rgba(0,0,0,.15); */
+    font-style: oblique !important;
+    font-weight: bold !important;
+    font-size: 18px;
+}
+
+NavLink {
+    font-size: 18px !important;
+    border: none !important;
+}
+
+#tabs {
+    border: none
+}
+
+.fb-page {
+    background-color: rgba(128, 128, 128, 0.500);
+}

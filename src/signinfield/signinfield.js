@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import Signin from "../signin/signin.js";
-// import Signup from "../signup/signup.js";
 import "./signinfield.css";
-import Signin2 from "../signin/signin2.js";
+import Signin from "../signin/signin.js";
+import Signup from "../signup/signup.js";
 
 export default class Signinfield extends Component {
 
@@ -10,8 +9,9 @@ export default class Signinfield extends Component {
         return (
             <div>
                 <div id="signInField">
-                    {/*<Signup /> */}
-                    <Signin2/>
+                    <Signup/>
+                    <br/>
+                    <Signin/>
                 </div>
             </div>
         )

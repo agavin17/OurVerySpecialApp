@@ -1,8 +1,9 @@
 .App {
   text-align: center;
-  background-image: url("https://foodiefactor.com/wp-content/uploads/2017/06/fried-egg-breakfast-1000x750.jpg");
+  background-image:url("food.jpeg");
   background-repeat: no-repeat;
   background-size: 100%;
+  padding-top: 50px;
 
 }
 
@@ -20,6 +21,8 @@
 
 .App-title {
   font-size: 1.5em;
+  padding-top: 40px;
+  text-shadow:1px 1px wheat;
 }
 
 .App-intro {
@@ -32,6 +35,9 @@
 }
 
 .fb-page {
-  padding:20px;
-  padding-bottom: 300px;
+  padding:40px;
+}
+
+#sub-page-header {
+  padding-left: 100px 
 }
