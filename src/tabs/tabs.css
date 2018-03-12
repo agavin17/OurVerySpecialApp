@@ -4,6 +4,7 @@
     text-shadow: 1px 1px black;
     font-style: oblique;
     font-weight: bold;
+    /* margin-left:20%; */
 }
 
 .nav-item:hover {
@@ -46,4 +47,52 @@ NavLink {
 
 .fb-page {
     background-color: rgba(128, 128, 128, 0.500);
+}
+
+.tabsBtns {
+    font-family: Times, Georgia, 'Times New Roman', serif;
+    background-color:rgba(245, 245, 245, 0.500);
+    border:none;
+    border-radius: 50px 50px;
+    margin-right: 10px;
+}
+
+.tncBtns {
+    height:40px;
+    margin:4px;
+}
+
+.heebsBtns {
+    height:40px;
+    margin:4px;
+}
+
+.davesBtns {
+    height:40px;
+    margin:4px;
+}
+
+button {
+   
+}
+
+.tabsBtns:hover {
+    border:2px solid black;
+    margin:-2px;
+    margin-right: 8px
+}
+
+.nav-item1 {
+    float: left;
+    width:33.33%;
+}
+
+.nav-item2 {
+    float: left;
+    width: 33.33%;
+}
+
+.nav-item3 {
+    float: left;
+    width: 33.33%;
 }

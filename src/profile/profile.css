@@ -1,0 +1,21 @@
+#welcome-logo {
+    width:350px;
+    border:2px solid green;
+    float:left;
+}
+
+#profile-box {
+    width: 200px;
+    border:2px solid black;
+    float:left;
+}
+
+#profile-main {
+    border: dashed red 2px;
+    /* height:220px; */
+    /* overflow: scroll; */
+}
+
+#test-sms {
+    margin-bottom: 5px;
+}
