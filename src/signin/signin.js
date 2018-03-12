@@ -18,6 +18,7 @@ export default class Signin extends React.Component {
         this.signIn = this.signIn.bind(this);
         this.sendSms = this.sendSms.bind(this);
         this.toggle = this.toggle.bind(this);
+        this.stopSms = this.stopSms.bind(this);
     }
 
     toggle() {
@@ -40,6 +41,12 @@ export default class Signin extends React.Component {
     sendSms() {
         axios.post("/text", { number: this.state.number, token: localStorage.getItem("token") }).then((result) => {
             console.log(result.data)
+        })
+    }
+
+    stopSms(){
+        axios.post("/stopText", { number: this.state.number, token: localStorage.getItem("token") }).then((result) => {
+            console.log(result.data);
         })
     }
 
@@ -76,6 +83,7 @@ export default class Signin extends React.Component {
                 <br />
                 <br />
                 <button id="sendSmsBtn" onClick={this.sendSms}>Sign up for daily text alerts</button>
+                <button onClick={this.stopSms}>Stop Daily Texts</button>
             </div>
         );
     }
