@@ -72,10 +72,6 @@ NavLink {
     margin:4px;
 }
 
-button {
-   
-}
-
 .tabsBtns:hover {
     border:2px solid black;
     margin:-2px;
