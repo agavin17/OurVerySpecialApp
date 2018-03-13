@@ -3,14 +3,12 @@ import { TabContent, TabPane, Nav, NavItem, NavLink, Row, Col } from 'reactstrap
 import classnames from 'classnames';
 import "./tabs.css";
 import { Table } from 'reactstrap';
-// import axios from "axios";
 
 export default class Tabs extends React.Component {
   constructor(props) {
     super(props);
 
     this.toggle = this.toggle.bind(this);
-    // this.sendTnCText = this.sendTnCText.bind(this);
     this.state = {
       activeTab: '1'
     };
@@ -23,12 +21,6 @@ export default class Tabs extends React.Component {
       });
     }
   }
-
-  // sendTnCText() {
-  //   axios.post("/text", { number: this.state.number, token: localStorage.getItem("token") }).then((result) => {
-  //     console.log(result.data)
-  //   })
-  // }
 
   render() {
     return (

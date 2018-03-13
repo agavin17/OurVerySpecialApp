@@ -19,7 +19,7 @@ export default class Signin extends React.Component {
     render() {
         return (
             <div>
-                <Button color="danger" onClick={this.props.toggle}>Log In</Button>
+                <Button id="signin-button" color="danger" onClick={this.props.toggle}>Log In</Button>
                 <Modal id="signInModal" isOpen={this.props.modal} toggle={this.props.toggle} className={this.props.className}>
                     <ModalHeader toggle={this.props.toggle}>Please sign in</ModalHeader>
                     <ModalBody>

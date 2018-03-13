@@ -3,17 +3,18 @@ import {
   Collapse,
   Navbar,
   NavbarToggler,
-  NavbarBrand,
   Nav,
   NavItem,
   NavLink,
   UncontrolledDropdown,
   DropdownToggle,
   DropdownMenu,
-  DropdownItem } from 'reactstrap';
+  DropdownItem
+} from 'reactstrap';
 import Signin from "../signin/signin.js";
 import Signup from "../signup/signup.js";
 import Profile from "../profile/profile.js";
+import "./navbar.css";
 
 export default class Navbar2 extends React.Component {
   constructor(props) {
@@ -34,37 +35,36 @@ export default class Navbar2 extends React.Component {
   logOut() {
     localStorage.clear();
     window.location.reload();
-}
+  }
 
   render() {
     return (
       <div>
-        <Navbar color="faded" light expand="md">
-          {/* <NavbarBrand href="/"></NavbarBrand> */}
-          {/* <div id="logo"> */}
-          {/* </div> */}
-          <Profile tncSubscribe={this.props.tncSubscribe}/>
-          <NavbarToggler onClick={this.toggle} />
+        <Navbar id="navbar-main" color="faded" light expand="md" className="w3-animate-left">
+          <Profile tncSubscribe={this.props.tncSubscribe} heebsSubscribe={this.props.heebsSubscribe}
+            davesSubscribe={this.props.davesSubscribe} stopSms={this.props.stopSms} userProfile={this.props.userProfile}/>
+          <NavbarToggler onClick={this.toggle} number={this.props.number}/>
           <Collapse isOpen={this.state.isOpen} navbar>
-            <Nav className="ml-auto" navbar>
-              <NavItem>
+            <Nav id="navbar-buttons" className="ml-auto" navbar>
+            <div id="navbar-test">
+              {/* <NavItem>
                 <NavLink href="/components/">Components</NavLink>
-              </NavItem>
-              <NavItem>
+              </NavItem> */}
+              {/* <NavItem>
                 <NavLink href="https://github.com/reactstrap/reactstrap">Github</NavLink>
-              </NavItem>
-              <UncontrolledDropdown nav inNavbar>
-                <DropdownToggle nav caret>
+              </NavItem> */}
+              <UncontrolledDropdown id="navbar-dropdown"nav inNavbar>
+                <DropdownToggle id="navbar-test2"nav caret>
                   Sign in/up
                 </DropdownToggle>
                 <DropdownMenu >
                   <DropdownItem>
                     <Signin sendSms={this.props.sendSms} signIn={this.props.signIn} onPasswordChange={this.props.onPasswordChange}
-                        onUserChange={this.props.onUserChange} username={this.props.username} password={this.props.password}
-                        toggle={this.props.toggle} modal={this.props.modal} stopSms={this.props.stopSms}/>
+                      onUserChange={this.props.onUserChange} username={this.props.username} password={this.props.password}
+                      toggle={this.props.toggle} modal={this.props.modal} stopSms={this.props.stopSms} />
                   </DropdownItem>
                   <DropdownItem>
-                    <Signup/>
+                    <Signup />
                   </DropdownItem>
                   <DropdownItem divider />
                   <DropdownItem>
@@ -72,6 +72,7 @@ export default class Navbar2 extends React.Component {
                   </DropdownItem>
                 </DropdownMenu>
               </UncontrolledDropdown>
+              </div>
             </Nav>
           </Collapse>
         </Navbar>

@@ -1,21 +1,42 @@
 #welcome-logo {
     width:350px;
-    border:2px solid green;
+    /* border:2px solid green; */
     float:left;
 }
 
 #profile-box {
     width: 200px;
-    border:2px solid black;
+    border:2px solid grey;
     float:left;
+    font-size: 20px;
+    font-weight: bold;
+    text-shadow: .5px .5px grey;
 }
 
-#profile-main {
-    border: dashed red 2px;
-    /* height:220px; */
-    /* overflow: scroll; */
+/* #profile-main {
+    opacity: 1;
+    transition: opacity 2s ease-in;
+    transition:transform opacity 1s;
 }
+
+#profile-main:hover {
+    opacity:0;
+} */
 
 #test-sms {
     margin-bottom: 5px;
 }
+
+@keyframes fadeInOut {
+    0% {
+      opacity: 0;
+    }
+  
+    45% {
+      opacity: 1;
+    }
+  
+    100% {
+      opacity: 0%;
+    }
+  }

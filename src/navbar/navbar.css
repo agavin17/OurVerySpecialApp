@@ -1,3 +1,15 @@
 .app-logo {
     float: left;
 }
+
+#navbar-main {
+    display:flex;
+    flex-direction: row;
+    align-items:flex-start;
+    justify-content: flex-end;
+}
+
+/* .nav-item {
+    color:blue;
+} */
+
