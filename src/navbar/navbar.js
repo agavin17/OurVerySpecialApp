@@ -19,7 +19,6 @@ import "./navbar.css";
 export default class Navbar2 extends React.Component {
   constructor(props) {
     super(props);
-
     this.toggle = this.toggle.bind(this);
     this.logOut = this.logOut.bind(this);
     this.state = {

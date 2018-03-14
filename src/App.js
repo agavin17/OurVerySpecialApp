@@ -35,11 +35,11 @@ export default class App extends Component {
         tncSubscribe: result.data.tncSubscribe,
         userProfile:
           <div id="profile-box">
-            <p>Username: {this.state.username}</p>
-            <p>Number: {result.data.number}</p>
-            <p>Your Subscriptions:<br />{result.data.tncSubscribe}<br />{result.data.heebsSubscribe}<br />{result.data.davesSubscribe}</p>
-            <button id="test-sms" onClick={this.testSms}>Send Test SMS</button>
-            <button onClick={this.stopSms}>Stop All Texts</button>
+            <p><div className="profile-base-text">Username: </div>{this.state.username}</p>
+            <p><div className="profile-base-text">Number: </div>{result.data.number}</p>
+            <p><div className="profile-base-text">Your Subscriptions:</div></p><p className="profile-subs">{result.data.tncSubscribe}</p><p className="profile-subs">{result.data.heebsSubscribe}</p><p className="profile-subs">{result.data.davesSubscribe}</p>
+            <button id="test-sms" className="profile-buttons" onClick={this.testSms}>Test SMS</button>
+            <button id="stop-sms" className="profile-buttons" onClick={this.stopSms}>Stop All SMS</button>
           </div>
       })
     })
@@ -52,11 +52,11 @@ export default class App extends Component {
         heebsSubscribe: result.data.heebsSubscribe,
         userProfile:
           <div id="profile-box">
-            <p>Username: {this.state.username}</p>
-            <p>Number: {result.data.number}</p>
-            <p>Your Subscriptions:<br />{result.data.tncSubscribe}<br />{result.data.heebsSubscribe}<br />{result.data.davesSubscribe}</p>
-            <button id="test-sms" onClick={this.testSms}>Send Test SMS</button>
-            <button onClick={this.stopSms}>Stop All Texts</button>
+            <p><div className="profile-base-text">Username: </div>{this.state.username}</p>
+            <p><div className="profile-base-text">Number: </div>{result.data.number}</p>
+            <p><div className="profile-base-text">Your Subscriptions:</div></p><p className="profile-subs">{result.data.tncSubscribe}</p><p className="profile-subs">{result.data.heebsSubscribe}</p><p className="profile-subs">{result.data.davesSubscribe}</p>
+            <button id="test-sms" className="profile-buttons" onClick={this.testSms}>Test SMS</button>
+            <button id="stop-sms" className="profile-buttons" onClick={this.stopSms}>Stop All SMS</button>
           </div>
       })
     })
@@ -69,11 +69,11 @@ export default class App extends Component {
         davesSubscribe: result.data.davesSubscribe,
         userProfile:
           <div id="profile-box">
-            <p>Username: {this.state.username}</p>
-            <p>Number: {result.data.number}</p>
-            <p>Your Subscriptions:<br />{result.data.tncSubscribe}<br />{result.data.heebsSubscribe}<br />{result.data.davesSubscribe}</p>
-            <button id="test-sms" onClick={this.testSms}>Send Test SMS</button>
-            <button onClick={this.stopSms}>Stop All Texts</button>
+            <p><div className="profile-base-text">Username: </div>{this.state.username}</p>
+            <p><div className="profile-base-text">Number: </div>{result.data.number}</p>
+            <p><div className="profile-base-text">Your Subscriptions:</div></p><p className="profile-subs">{result.data.tncSubscribe}</p><p className="profile-subs">{result.data.heebsSubscribe}</p><p className="profile-subs">{result.data.davesSubscribe}</p>
+            <button id="test-sms" className="profile-buttons" onClick={this.testSms}>Test SMS</button>
+            <button id="stop-sms" className="profile-buttons" onClick={this.stopSms}>Stop All SMS</button>
           </div>
       })
     })
@@ -118,11 +118,11 @@ export default class App extends Component {
         davesSubscribe: result.data.davesSubscribe,
         userProfile:
           <div id="profile-box">
-            <p>Username:<br />{this.state.username}</p>
-            <p>Number:<br />{result.data.number}</p>
-            <p>Your Subscriptions:<br />{result.data.tncSubscribe}<br />{result.data.heebsSubscribe}<br />{result.data.davesSubscribe}</p>
-            <button id="test-sms" onClick={this.testSms}>Send Test SMS</button>
-            <button onClick={this.stopSms}>Stop All Texts</button>
+            <p><div className="profile-base-text">Username: </div>{this.state.username}</p>
+            <p><div className="profile-base-text">Number: </div>{result.data.number}</p>
+            <p><div className="profile-base-text">Your Subscriptions:</div></p><p className="profile-subs">{result.data.tncSubscribe}</p><p className="profile-subs">{result.data.heebsSubscribe}</p><p className="profile-subs">{result.data.davesSubscribe}</p>
+            <button id="test-sms" className="profile-buttons" onClick={this.testSms}>Test SMS</button>
+            <button id="stop-sms" className="profile-buttons" onClick={this.stopSms}>Stop All SMS</button>
           </div>
       })
       if (result.data.message) {
