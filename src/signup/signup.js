@@ -4,8 +4,6 @@ import React from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import axios from "axios";
 import "./signup.css";
-import 'bootstrap/dist/css/bootstrap.css';
-
 
 export default class Signup extends React.Component {
     constructor() {
@@ -66,20 +64,22 @@ export default class Signup extends React.Component {
     render() {
         return (
             <div>
-                <Button color="danger" onClick={this.toggle}>Sign Up</Button>
+                <Button id="signup-button" color="danger" onClick={this.toggle}>Sign Up</Button>
                 <Modal id="signUpModal" isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
-                    <ModalHeader toggle={this.toggle}>Sign up below</ModalHeader>
-                    <ModalBody>
+                    <ModalHeader className="modal-parts" toggle={this.toggle}>Sign up below</ModalHeader>
+                    <ModalBody className="modal-parts">
                         <div><p>Username:</p>
                             <input type="text" name="username" placeholder="username" value={this.state.username} onChange={this.onUserChange} />
+                            <br/><br/>
                             <p>Password:</p>
                             <input type="password" name="password" placeholder="password" value={this.state.password} onChange={this.onPasswordChange} />
+                            <br/><br/>
                             <p>Phone Number:</p>
                             <input type="text" name="number" placeholder="phone number" value={this.state.number} onChange={this.onNumberChange} />
                         </div>
                     </ModalBody>
-                    <ModalFooter>
-                        <Button color="primary" onClick={this.signUp}>Sign Up</Button>{' '}
+                    <ModalFooter className="modal-parts">
+                        <Button color="dark" onClick={this.signUp}>Sign Up</Button>{' '}
                     </ModalFooter>
                 </Modal>
             </div>

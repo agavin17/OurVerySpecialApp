@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-// import Signinfield from "./signinfield/signinfield.js";
+import 'bootstrap/dist/css/bootstrap.css';
 import Tabs from "./tabs/tabs.js";
 import axios from "axios";
 import Navbar2 from "./navbar/navbar.js";
@@ -8,7 +8,6 @@ import Navbar2 from "./navbar/navbar.js";
 export default class App extends Component {
   constructor() {
     super()
-    // this.sendSms = this.sendSms.bind(this);
     this.sendTnCText = this.sendTnCText.bind(this);
     this.signIn = this.signIn.bind(this);
     this.onPasswordChange = this.onPasswordChange.bind(this);
@@ -22,19 +21,12 @@ export default class App extends Component {
       number: "",
       password: "",
       modal: false,
-      // userWelcome: "",
       tncSubscribe: "",
       heebsSubscribe: "",
       davesSubscribe: "",
       userProfile: ""
     }
   }
-
-  // sendSms() {
-  //   axios.post("/text", { number: this.state.number, token: localStorage.getItem("token") }).then((result) => {
-  //     console.log(result.data)
-  //   })
-  // }
 
   sendTnCText() {
     axios.post("/textTnC", { username: this.state.username, number: this.state.number, token: localStorage.getItem("token") }).then((result) => {
@@ -43,8 +35,8 @@ export default class App extends Component {
         tncSubscribe: result.data.tncSubscribe,
         userProfile:
           <div id="profile-box">
-            <p>Username:<br />{this.state.username}</p>
-            <p>Number:<br />{result.data.number}</p>
+            <p>Username: {this.state.username}</p>
+            <p>Number: {result.data.number}</p>
             <p>Your Subscriptions:<br />{result.data.tncSubscribe}<br />{result.data.heebsSubscribe}<br />{result.data.davesSubscribe}</p>
             <button id="test-sms" onClick={this.testSms}>Send Test SMS</button>
             <button onClick={this.stopSms}>Stop All Texts</button>
@@ -60,8 +52,8 @@ export default class App extends Component {
         heebsSubscribe: result.data.heebsSubscribe,
         userProfile:
           <div id="profile-box">
-            <p>Username:<br />{this.state.username}</p>
-            <p>Number:<br />{result.data.number}</p>
+            <p>Username: {this.state.username}</p>
+            <p>Number: {result.data.number}</p>
             <p>Your Subscriptions:<br />{result.data.tncSubscribe}<br />{result.data.heebsSubscribe}<br />{result.data.davesSubscribe}</p>
             <button id="test-sms" onClick={this.testSms}>Send Test SMS</button>
             <button onClick={this.stopSms}>Stop All Texts</button>
@@ -77,8 +69,8 @@ export default class App extends Component {
         davesSubscribe: result.data.davesSubscribe,
         userProfile:
           <div id="profile-box">
-            <p>Username:<br />{this.state.username}</p>
-            <p>Number:<br />{result.data.number}</p>
+            <p>Username: {this.state.username}</p>
+            <p>Number: {result.data.number}</p>
             <p>Your Subscriptions:<br />{result.data.tncSubscribe}<br />{result.data.heebsSubscribe}<br />{result.data.davesSubscribe}</p>
             <button id="test-sms" onClick={this.testSms}>Send Test SMS</button>
             <button onClick={this.stopSms}>Stop All Texts</button>
@@ -86,7 +78,6 @@ export default class App extends Component {
       })
     })
   }
-
 
   signIn() {
     axios.post("/signInData", { username: this.state.username, password: this.state.password }).then((result) => {
@@ -96,17 +87,16 @@ export default class App extends Component {
         number: result.data.number,
         modal: !this.state.modal,
         password: "",
-        // userWelcome: <h3 id="welcome">Welcome, {this.state.username}</h3>,
         tncSubscribe: result.data.tncSubscribe,
         heebsSubscribe: result.data.heebsSubscribe,
         davesSubscribe: result.data.davesSubscribe,
         userProfile:
           <div id="profile-box">
-            <p>Username:<br />{this.state.username}</p>
-            <p>Number:<br />{result.data.number}</p>
-            <p>Your Subscriptions:</p><p>{result.data.tncSubscribe}</p><p>{result.data.heebsSubscribe}</p><p>{result.data.davesSubscribe}</p>
-            <button id="test-sms" onClick={this.testSms}>Test SMS</button>
-            <button onClick={this.stopSms}>Stop All SMS</button>
+            <p><div className="profile-base-text">Username: </div>{this.state.username}</p>
+            <p><div className="profile-base-text">Number: </div>{result.data.number}</p>
+            <p><div className="profile-base-text">Your Subscriptions:</div></p><p className="profile-subs">{result.data.tncSubscribe}</p><p className="profile-subs">{result.data.heebsSubscribe}</p><p className="profile-subs">{result.data.davesSubscribe}</p>
+            <button id="test-sms" className="profile-buttons" onClick={this.testSms}>Test SMS</button>
+            <button id="stop-sms" className="profile-buttons" onClick={this.stopSms}>Stop All SMS</button>
           </div>
       })
       console.log(this.state.tncSubscribe)
@@ -123,9 +113,9 @@ export default class App extends Component {
     axios.post("/stopText", { username: this.state.username, number: this.state.number, token: localStorage.getItem("token") }).then((result) => {
       console.log(result.data);
       this.setState({
-        tncSubscribe:result.data.tncSubscribe,
-        heebsSubscribe:result.data.heebsSubscribe,
-        davesSubscribe:result.data.davesSubscribe,
+        tncSubscribe: result.data.tncSubscribe,
+        heebsSubscribe: result.data.heebsSubscribe,
+        davesSubscribe: result.data.davesSubscribe,
         userProfile:
           <div id="profile-box">
             <p>Username:<br />{this.state.username}</p>

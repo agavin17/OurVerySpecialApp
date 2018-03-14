@@ -1,42 +1,19 @@
 #welcome-logo {
     width:350px;
-    /* border:2px solid green; */
-    float:left;
+    display: block;
+    margin-left: 38vw;
+    text-align: center;
 }
 
 #profile-box {
     width: 200px;
     border:2px solid grey;
     float:left;
-    font-size: 20px;
-    font-weight: bold;
+    font-size: 16px;
     text-shadow: .5px .5px grey;
+    text-align: center;
 }
-
-/* #profile-main {
-    opacity: 1;
-    transition: opacity 2s ease-in;
-    transition:transform opacity 1s;
-}
-
-#profile-main:hover {
-    opacity:0;
-} */
 
 #test-sms {
     margin-bottom: 5px;
 }
-
-@keyframes fadeInOut {
-    0% {
-      opacity: 0;
-    }
-  
-    45% {
-      opacity: 1;
-    }
-  
-    100% {
-      opacity: 0%;
-    }
-  }

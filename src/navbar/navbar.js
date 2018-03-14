@@ -4,8 +4,8 @@ import {
   Navbar,
   NavbarToggler,
   Nav,
-  NavItem,
-  NavLink,
+  // NavItem,
+  // NavLink,
   UncontrolledDropdown,
   DropdownToggle,
   DropdownMenu,
@@ -26,6 +26,7 @@ export default class Navbar2 extends React.Component {
       isOpen: false
     };
   }
+
   toggle() {
     this.setState({
       isOpen: !this.state.isOpen
@@ -42,36 +43,36 @@ export default class Navbar2 extends React.Component {
       <div>
         <Navbar id="navbar-main" color="faded" light expand="md" className="w3-animate-left">
           <Profile tncSubscribe={this.props.tncSubscribe} heebsSubscribe={this.props.heebsSubscribe}
-            davesSubscribe={this.props.davesSubscribe} stopSms={this.props.stopSms} userProfile={this.props.userProfile}/>
-          <NavbarToggler onClick={this.toggle} number={this.props.number}/>
+            davesSubscribe={this.props.davesSubscribe} stopSms={this.props.stopSms} userProfile={this.props.userProfile} />
+          <NavbarToggler onClick={this.toggle} number={this.props.number} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav id="navbar-buttons" className="ml-auto" navbar>
-            <div id="navbar-test">
-              {/* <NavItem>
+              <div>
+                {/* <NavItem>
                 <NavLink href="/components/">Components</NavLink>
               </NavItem> */}
-              {/* <NavItem>
+                {/* <NavItem>
                 <NavLink href="https://github.com/reactstrap/reactstrap">Github</NavLink>
               </NavItem> */}
-              <UncontrolledDropdown id="navbar-dropdown"nav inNavbar>
-                <DropdownToggle id="navbar-test2"nav caret>
-                  Sign in/up
+                <UncontrolledDropdown id="navbar-dropdown" nav inNavbar>
+                  <DropdownToggle nav caret>
+                    Sign in/up
                 </DropdownToggle>
-                <DropdownMenu >
-                  <DropdownItem>
-                    <Signin sendSms={this.props.sendSms} signIn={this.props.signIn} onPasswordChange={this.props.onPasswordChange}
-                      onUserChange={this.props.onUserChange} username={this.props.username} password={this.props.password}
-                      toggle={this.props.toggle} modal={this.props.modal} stopSms={this.props.stopSms} />
-                  </DropdownItem>
-                  <DropdownItem>
-                    <Signup />
-                  </DropdownItem>
-                  <DropdownItem divider />
-                  <DropdownItem>
-                    <button onClick={this.logOut}>Log Out</button>
-                  </DropdownItem>
-                </DropdownMenu>
-              </UncontrolledDropdown>
+                  <DropdownMenu id="dropdown-menu">
+                    <DropdownItem className="dropdown-item">
+                      <Signin sendSms={this.props.sendSms} signIn={this.props.signIn} onPasswordChange={this.props.onPasswordChange}
+                        onUserChange={this.props.onUserChange} username={this.props.username} password={this.props.password}
+                        toggle={this.props.toggle} modal={this.props.modal} stopSms={this.props.stopSms} />
+                    </DropdownItem>
+                    <DropdownItem>
+                      <Signup />
+                    </DropdownItem>
+                    <DropdownItem divider />
+                    <DropdownItem>
+                      <button onClick={this.logOut}>Log Out</button>
+                    </DropdownItem>
+                  </DropdownMenu>
+                </UncontrolledDropdown>
               </div>
             </Nav>
           </Collapse>

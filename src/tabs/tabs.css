@@ -1,47 +1,36 @@
+@import url("https://fonts.googleapis.com/css?family=Raleway");
+
 .nav-item {
-    color:rgb(0, 0, 0);
-    background: rgb(177, 123, 123);
     font-size: 20px;
-    border-radius: 10px 10px;
-    font-weight: bold;
+}
+
+.nav-tabs .nav-link{
+    border:none;
+    box-shadow: 1px 1px 10px rgb(0, 0, 0)
 }
 
 .nav-item:hover{
     color:grey;
-    background: rgba(28, 85, 158, 0.800);
-    text-shadow: 1px 1px black;
-    font-style: oblique;
-    font-weight: bold;
-    border:none !important
+    background: #36272ccc;
 }
 
 .active.nav-link {
-    color:white !important;
-    background: rgba(28, 85, 158, 0.800) !important;
-    font-style: oblique !important;
-    font-weight: bold !important;
-    font-size: 18px;
-}
-
-NavLink {
-    font-size: 18px !important;
-    border: none !important;
-}
-
-#tabs {
-    border: none
-}
-
-.fb-page {
-    background-color: rgba(128, 128, 128, 0.500);
+    background: #36272ccc!important;
 }
 
 .tabsBtns {
-    font-family: Times, Georgia, 'Times New Roman', serif;
+    font-family: 'Raleway', sans-serif;
     background-color:rgba(245, 245, 245, 0.500);
     border:none;
     border-radius: 50px 50px;
     margin-right: 10px;
+    text-shadow: 2px 2px 5px rgb(100, 100, 100);
+    box-shadow: 2px 2px 10px black
+}
+
+.fb-page {
+    background-color: rgba(71, 71, 71, 0.712);
+    box-shadow: 2px 2px 10px rgb(0, 0, 0)
 }
 
 .tncBtns {
@@ -68,32 +57,26 @@ NavLink {
 .nav-item1 {
     float: left;
     width:33.33%;
-
     color:white;
-    background: rgba(28, 85, 158, 0.800);
-    text-shadow: 1px 1px black;
-    font-style: oblique;
-    font-weight: bold;
+    background: #563f46cc;
 }
 
 .nav-item2 {
     float: left;
     width: 33.33%;
-
+    background: #563f46cc;
     color:white;
-    background: rgba(28, 85, 158, 0.800);
-    text-shadow: 1px 1px black;
-    font-style: oblique;
-    font-weight: bold;
 }
 
 .nav-item3 {
     float: left;
     width: 33.33%;
-
+    background: #563f46cc;
     color:white;
-    background: rgba(28, 85, 158, 0.800);
-    text-shadow: 1px 1px black;
-    font-style: oblique;
-    font-weight: bold;
+}
+
+#tabs {
+    text-align: center;
+    font-family: 'Raleway', sans-serif;
+    text-shadow: 2px 2px 10px black;
 }

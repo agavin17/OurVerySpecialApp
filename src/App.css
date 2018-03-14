@@ -1,29 +1,17 @@
 .App {
-  text-align: center;
-  background-image:url("food.jpeg");
-  background-repeat: no-repeat;
-  background-size: 100%;
-  /* padding-top: 50px; */
-  font-family: 'Times New Roman', Times, serif
+  background: linear-gradient(to bottom right, #484f4f, #a8a8a8);
+  font-family: 'Times New Roman', Times, serif;
+  width:auto;
+  overflow-x: scroll;
 }
 
 .App-logo {
-  /* animation: App-logo-spin infinite 20s linear; */
   height: 80px;
-  /* margin: -50px; */
   margin-bottom: 100px;
 }
 
-/* .App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-} */
-
 .App-title {
   font-size: 1.5em;
-  /* padding-top: 40px; */
   text-shadow:1px 1px wheat;
   text-align: center;
 }
@@ -44,4 +32,58 @@
 #welcome {
   text-align:left;
   margin: 40px;
+}
+
+.profile-subs {
+  margin-top: -20px;
+}
+
+#profile-box {
+  padding:5px;
+  background-color: rgba(128, 128, 128, 0.500);
+}
+
+.profile-base-text {
+  font-size: 18px;
+  text-decoration-line: underline;
+  font-weight: bold;
+}
+
+#test-sms {
+  margin-right: 5px;
+}
+
+.profile-buttons {
+  display:inline-block;
+  padding:0.3em 1.2em;
+  margin:0 0.3em 0.3em 0;
+  border-radius:2em;
+  box-sizing: border-box;
+  text-decoration:none;
+  font-family:'Roboto',sans-serif;
+  font-weight:300;
+  color:rgb(255, 255, 255);
+  background-color: rgba(28, 85, 158, 0.800);
+  text-align:center;
+  transition: all .1s; 
+  font-size: 14px;
+}
+
+.profile-buttons:hover{
+  background-color: rgba(15, 61, 121, 0.8);
+}
+  
+@media all and (max-width:30em){
+  #stop-sms{
+    display:block;
+    margin:0.2em auto;  
+  }
+}
+
+a {
+  color:white!important;
+}
+
+body {
+  border: 5px solid black !important
 }

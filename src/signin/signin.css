@@ -1,3 +1,18 @@
 #signInModal {
     width:250px;
 }
+
+#signin-button {
+    background-color: #343a40;
+    border: none;
+}
+
+#signin-button:hover {
+    background-color: #24282c;
+}
+
+.modal-parts {
+    background-color: #8ca3a3!important;
+    border: none!important;
+    color: rgb(0, 0, 0);
+}
