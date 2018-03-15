@@ -1,8 +1,11 @@
+
 import React from 'react';
 import { TabContent, TabPane, Nav, NavItem, NavLink, Row, Col } from 'reactstrap';
 import classnames from 'classnames';
 import "./tabs.css";
 import { Table } from 'reactstrap';
+// import Photos from "../photos/photos.js";
+import MooseTabs from "../moosetabs/moosetabs.js";
 
 export default class Tabs extends React.Component {
   constructor(props) {
@@ -24,6 +27,7 @@ export default class Tabs extends React.Component {
   render() {
     return (
       <div>
+
         <Nav id="tabs" tabs>
           <NavItem className="nav-item1">
             <NavLink
@@ -143,8 +147,38 @@ export default class Tabs extends React.Component {
           <TabPane tabId="3">
             <Row>
               <Col sm="12">
+                {/* <div id="photos-buttons-outter-div">
+                  <div id="photos-buttons-div">
+                    <button id="fillingStationBtn" className="tabsBtns" className="photos-buttons" onClick={this.props.sendTnCText}><img className="tncBtns" onClick={this.props.sendTnCText} src={require("../project-images/sms.png")} alt="sms" />Daily Alert</button>
+                    <button id="fillingStationBtn" className="tabsBtns" className="photos-buttons" onClick={this.props.sendTnCText}><img className="tncBtns" onClick={this.props.sendTnCText} src={require("../project-images/sms.png")} alt="sms" />Daily Alert</button>
+                    <button id="fillingStationBtn" className="tabsBtns" className="photos-buttons" onClick={this.props.sendTnCText}><img className="tncBtns" onClick={this.props.sendTnCText} src={require("../project-images/sms.png")} alt="sms" />Daily Alert</button>
+                    <button id="fillingStationBtn" className="tabsBtns" className="photos-buttons" onClick={this.props.sendTnCText}><img className="tncBtns" onClick={this.props.sendTnCText} src={require("../project-images/sms.png")} alt="sms" />Daily Alert</button>
+                    <button id="fillingStationBtn" className="tabsBtns" className="photos-buttons" onClick={this.props.sendTnCText}><img className="tncBtns" onClick={this.props.sendTnCText} src={require("../project-images/sms.png")} alt="sms" />Daily Alert</button>
+                    <button id="fillingStationBtn" className="tabsBtns" className="photos-buttons" onClick={this.props.sendTnCText}><img className="tncBtns" onClick={this.props.sendTnCText} src={require("../project-images/sms.png")} alt="sms" />Daily Alert</button>
+                    <button id="fillingStationBtn" className="tabsBtns" className="photos-buttons" onClick={this.props.sendTnCText}><img className="tncBtns" onClick={this.props.sendTnCText} src={require("../project-images/sms.png")} alt="sms" />Daily Alert</button>
+                  </div>
+                </div> */}
                 <Table>
-                  <thead>
+                  <div id="MooseTabs-div">
+                    <MooseTabs />
+                  </div>
+                  {/* <thead>
+                    <tr>
+                      <th>
+                        <div id="photos-buttons-div">
+                          <button id="fillingStationBtn" className="tabsBtns" className="photos-buttons" onClick={this.props.sendTnCText}><img className="tncBtns" onClick={this.props.sendTnCText} src={require("../project-images/sms.png")} alt="sms" />Daily Alert</button>
+                          <button id="fillingStationBtn" className="tabsBtns" className="photos-buttons" onClick={this.props.sendTnCText}><img className="tncBtns" onClick={this.props.sendTnCText} src={require("../project-images/sms.png")} alt="sms" />Daily Alert</button>
+                          <button id="fillingStationBtn" className="tabsBtns" className="photos-buttons" onClick={this.props.sendTnCText}><img className="tncBtns" onClick={this.props.sendTnCText} src={require("../project-images/sms.png")} alt="sms" />Daily Alert</button>
+                          <button id="fillingStationBtn" className="tabsBtns" className="photos-buttons" onClick={this.props.sendTnCText}><img className="tncBtns" onClick={this.props.sendTnCText} src={require("../project-images/sms.png")} alt="sms" />Daily Alert</button>
+                          <button id="fillingStationBtn" className="tabsBtns" className="photos-buttons" onClick={this.props.sendTnCText}><img className="tncBtns" onClick={this.props.sendTnCText} src={require("../project-images/sms.png")} alt="sms" />Daily Alert</button>
+                          <button id="fillingStationBtn" className="tabsBtns" className="photos-buttons" onClick={this.props.sendTnCText}><img className="tncBtns" onClick={this.props.sendTnCText} src={require("../project-images/sms.png")} alt="sms" />Daily Alert</button>
+                          <button id="fillingStationBtn" className="tabsBtns" className="photos-buttons" onClick={this.props.sendTnCText}><img className="tncBtns" onClick={this.props.sendTnCText} src={require("../project-images/sms.png")} alt="sms" />Daily Alert</button>
+                          <button id="fillingStationBtn" className="tabsBtns" className="photos-buttons" onClick={this.props.sendTnCText}><img className="tncBtns" onClick={this.props.sendTnCText} src={require("../project-images/sms.png")} alt="sms" />Daily Alert</button>
+                        </div>
+                      </th>
+                    </tr>
+                  </thead> */}
+                  {/* <thead>
                     <tr>
                       <th>
                         <div>
@@ -168,15 +202,21 @@ export default class Tabs extends React.Component {
                         </div>
                       </th>
                     </tr>
-                  </thead>
+                  </thead> */}
                   <tbody>
                     <tr>
                       <td>
-                        <div class="fb-page" width="380" data-href="https://www.facebook.com/fillingstationmontana/" data-tabs="timeline" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false"><blockquote cite="https://www.facebook.com/fillingstationmontana/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/fillingstationmontana/">The Filling Station</a></blockquote></div>                      </td>
+                        {/* <Photos /> */}
+                        {/* <div class="fb-page" width="380" data-href="https://www.facebook.com/fillingstationmontana/" data-tabs="timeline" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false"><blockquote cite="https://www.facebook.com/fillingstationmontana/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/fillingstationmontana/">The Filling Station</a></blockquote></div> */}
+                      </td>
                       <td>
-                        <div class="fb-page" width="380" data-href="https://www.facebook.com/zebracocktaillounge/" data-tabs="timeline" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false"><blockquote cite="https://www.facebook.com/zebracocktaillounge/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/zebracocktaillounge/">Zebra Cocktail Lounge</a></blockquote></div>                      </td>
+
+                        {/* <div class="fb-page" width="380" data-href="https://www.facebook.com/zebracocktaillounge/" data-tabs="timeline" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false"><blockquote cite="https://www.facebook.com/zebracocktaillounge/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/zebracocktaillounge/">Zebra Cocktail Lounge</a></blockquote></div> */}
+                      </td>
                       <td>
-                        <div class="fb-page" width="380" data-href="https://www.facebook.com/therialto/" data-tabs="timeline" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false"><blockquote cite="https://www.facebook.com/therialto/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/therialto/">Rialto Bozeman</a></blockquote></div>                      </td>
+                        {/* <Photos /> */}
+                        {/* <div class="fb-page" width="380" data-href="https://www.facebook.com/therialto/" data-tabs="timeline" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false"><blockquote cite="https://www.facebook.com/therialto/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/therialto/">Rialto Bozeman</a></blockquote></div> */}
+                      </td>
                     </tr>
                   </tbody>
                 </Table>

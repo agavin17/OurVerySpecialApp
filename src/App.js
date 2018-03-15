@@ -149,7 +149,7 @@ export default class App extends Component {
     })
   }
 
-  render() {
+  render() { 
     return (
       <div className="App" >
         <Navbar2 signIn={this.signIn} onPasswordChange={this.onPasswordChange}

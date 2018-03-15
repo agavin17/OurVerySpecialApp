@@ -26,3 +26,7 @@
 .dropdown-item:hover {
     background-color: #8ca3a3!important;
 }
+
+.dropdown-toggle.show {
+    color:white!important;
+}
