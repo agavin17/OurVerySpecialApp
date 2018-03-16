@@ -28,7 +28,7 @@ export default class MooseTabs extends React.Component {
     calculateAndDisplayRoute(directionsService, directionsDisplay) {
         directionsService.route({
           origin: {lat:pos.lat, lng:pos.lng},
-          destination: document.getElementById('end').value,
+          destination: "albertsons belgrade",
           travelMode: 'DRIVING'
         }, function (response, status) {
           if (status === 'OK') {
