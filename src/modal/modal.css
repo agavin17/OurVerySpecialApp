@@ -1,14 +1,16 @@
 #modal-img{
-    height:100px;
+    height:150px;
     margin: 10px;
     box-shadow: 10px 10px 10px black;
-    max-width: 190px;
+    max-width: 250px;
+    padding: 10px;
+    border: solid grey 5px;
 }
 
 #modal-main {
     margin: auto;
     text-align: center;
-    width: 300px;
+    width: 400px;
     /* height:200px; */
     background-color: rgb(95, 95, 95);
     box-shadow: 2px 2px 20px black;
@@ -42,4 +44,8 @@
 
 .modal-body {
     background-color: rgb(95, 95, 95);
+}
+
+h3 {
+    text-decoration: underline;
 }

@@ -82,6 +82,7 @@ export default class App extends Component {
   signIn() {
     axios.post("/signInData", { username: this.state.username, password: this.state.password }).then((result) => {
       console.log(result.data.message)
+      if(result.data.message === "Login successful!"){
       localStorage.setItem('token', result.data.myToken);
       this.setState({
         number: result.data.number,
@@ -99,8 +100,12 @@ export default class App extends Component {
             <button id="stop-sms" className="profile-buttons" onClick={this.stopSms}>Stop All SMS</button>
           </div>
       })
+    } else {
+      alert(result.data.message)
+    }
       console.log(this.state.tncSubscribe)
     })
+  
   }
 
   testSms() {

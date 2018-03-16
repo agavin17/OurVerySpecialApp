@@ -47,9 +47,7 @@ export default class MooseTabs extends React.Component {
         }
     }
     calculateRoute() {
-        // this.directionsDisplay.setMap(map);
-        // this.calculateAndDisplayRoute(this.directionsService, this.directionsDisplay)
-
+        var promise1 = new Promise((resolve, reject) => {
             var map = new google.maps.Map(document.getElementById('map'), {
                 zoom: 12,
                 center: { lat: 45.676998, lng: -111.042931 }
@@ -68,6 +66,7 @@ export default class MooseTabs extends React.Component {
                     infoWindow.setContent('Your Are Here');
                     infoWindow.open(map);
                     map.setCenter(pos);
+                    resolve()
                 }, function () {
                     handleLocationError(true, infoWindow, map.getCenter());
                 });
@@ -75,7 +74,6 @@ export default class MooseTabs extends React.Component {
                 // Browser doesn't support Geolocation
                 handleLocationError(false, infoWindow, map.getCenter());
             }
-            debugger
             function handleLocationError(browserHasGeolocation, infoWindow, pos) {
                 infoWindow.setPosition(pos);
                 infoWindow.setContent(browserHasGeolocation ?
@@ -83,14 +81,17 @@ export default class MooseTabs extends React.Component {
                     'Error: Your browser doesn\'t support geolocation.');
                 infoWindow.open(map);
             }
-            
+        })
+        promise1.then(() => {
             this.directionsDisplay.setMap(map);
             this.calculateAndDisplayRoute(this.directionsService, this.directionsDisplay)
+        })
+        this.directionsDisplay.setMap(map);
+        this.calculateAndDisplayRoute(this.directionsService, this.directionsDisplay)
     }
 
 
     render() {
-
         navigator.geolocation.getCurrentPosition(function (position) {
             pos = {
                 lat: position.coords.latitude,

@@ -11,9 +11,22 @@
     float:left;
     font-size: 16px;
     text-shadow: .5px .5px grey;
-    text-align: center; 
+    text-align: center;
+    background-color: rgba(141, 141, 141, 0.349);
+    box-shadow: 4px 4px 10px black;
 }
 
 #test-sms {
     margin-bottom: 5px;
+}
+
+.App-logo {
+    height: 140px;
+    margin-bottom: 10px;
+    /* box-shadow: 3px 3px 300px rgba(251, 220, 40, 0.356) */
+}
+
+h4{
+    font-size: 40px;
+    text-shadow: 1px 1px gray
 }
