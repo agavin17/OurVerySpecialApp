@@ -8,7 +8,7 @@ export default class SitePopover extends React.Component {
         this.state = {
             modal: false
         };
-
+        this.runRoute = this.runRoute.bind(this);
         this.toggle = this.toggle.bind(this);
     }
 
@@ -16,6 +16,11 @@ export default class SitePopover extends React.Component {
         this.setState({
             modal: !this.state.modal
         });
+    }
+
+    runRoute() {
+        this.props.calculateRoute();
+
     }
 
     render() {
@@ -31,7 +36,7 @@ export default class SitePopover extends React.Component {
                             </td>
                             <tr>
                                 <button className="modal-buttons"><a className="website-anchor" href={this.props.siteUrl} target="_blank" rel="noopener noreferrer">Website</a></button>
-                                <button className="modal-buttons" onClick={this.props.calculateRoute}>Take Me There!</button>
+                                <button className="modal-buttons" onClick={this.runRoute}>Take Me There!</button>
                             </tr>
                         </table>
                     </ModalBody>

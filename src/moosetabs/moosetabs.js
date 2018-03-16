@@ -1,13 +1,13 @@
 import React from 'react';
 import { TabContent, TabPane, Nav, NavItem, NavLink, Card, CardTitle, CardText, Row, Col } from 'reactstrap';
 import classnames from 'classnames';
-import SitePopover from '../modal/modal.js'
+import SitePopover from '../modal/modal.js';
 import "./moosetabs.css";
 
 const google = window.google;
-var map, infoWindow;
-var pos
-
+var map;
+var infoWindow;
+var pos;
 
 export default class MooseTabs extends React.Component {
     constructor(props) {
@@ -20,7 +20,8 @@ export default class MooseTabs extends React.Component {
         this.directionsDisplay = new google.maps.DirectionsRenderer();
     
         this.state = {
-            activeTab: '1'
+            activeTab: '1',
+            work:""
         };
     }
 
@@ -47,12 +48,14 @@ export default class MooseTabs extends React.Component {
         }
     }
     calculateRoute() {
+        // this.directionsDisplay.setMap(map);
+        // this.calculateAndDisplayRoute(this.directionsService, this.directionsDisplay)
         debugger
-        map = new google.maps.Map(document.getElementById('map'), {
+       var map = new google.maps.Map(document.getElementById('map'), {
             zoom: 12,
             center: { lat: 45.676998, lng: -111.042931 }
           });
-      
+
             infoWindow = new google.maps.InfoWindow();
 
             if (navigator.geolocation) {
@@ -88,6 +91,14 @@ export default class MooseTabs extends React.Component {
     
 
     render() {
+
+        navigator.geolocation.getCurrentPosition(function (position) {
+            pos = {
+                lat: position.coords.latitude,
+                lng: position.coords.longitude
+            };
+        })
+
         return (
             <div id="moosetabs-div">
                 <Nav tabs>
