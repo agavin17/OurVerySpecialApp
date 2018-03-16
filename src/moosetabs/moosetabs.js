@@ -49,7 +49,7 @@ export default class MooseTabs extends React.Component {
     calculateRoute() {
         // this.directionsDisplay.setMap(map);
         // this.calculateAndDisplayRoute(this.directionsService, this.directionsDisplay)
-        return new Promise((resolve, reject) => {
+
             var map = new google.maps.Map(document.getElementById('map'), {
                 zoom: 12,
                 center: { lat: 45.676998, lng: -111.042931 }
@@ -83,16 +83,9 @@ export default class MooseTabs extends React.Component {
                     'Error: Your browser doesn\'t support geolocation.');
                 infoWindow.open(map);
             }
-        
-                resolve();
             
-        }).then(() => {
             this.directionsDisplay.setMap(map);
             this.calculateAndDisplayRoute(this.directionsService, this.directionsDisplay)
-
-        })
-
-
     }
 
 
