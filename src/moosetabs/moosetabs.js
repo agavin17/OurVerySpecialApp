@@ -83,6 +83,9 @@ export default class MooseTabs extends React.Component {
                         'Error: Your browser doesn\'t support geolocation.');
                     infoWindow.open(map);
                 }
+                if(pos){
+                resolve();
+                }
         }).then(()=>{
             this.directionsDisplay.setMap(map);
             this.calculateAndDisplayRoute(this.directionsService, this.directionsDisplay)
