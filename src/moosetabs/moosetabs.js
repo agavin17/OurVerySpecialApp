@@ -29,7 +29,7 @@ export default class MooseTabs extends React.Component {
         debugger
         directionsService.route({
           origin: {lat:pos.lat, lng:pos.lng},
-          destination: 'albertson bozeman',
+          destination: document.getElementById('end').value,
           travelMode: 'DRIVING'
         }, function (response, status) {
           if (status === 'OK') {
@@ -183,7 +183,7 @@ export default class MooseTabs extends React.Component {
                                     <CardTitle>Every Weekday Specials</CardTitle>
                                     <CardText>
                                         <div id="moosetabs-text" className="mappy">
-                                            <li> $2 Wells and domestics 5-7pm - <SitePopover calculateRoute= {this.calculateRoute} siteTitle="The Crystal" imgUrl="http://media.liveauctiongroup.net/i/27338/24151529_1.jpg?v=8D33FD3D09B7430" siteUrl="https://www.facebook.com/TheCrystalBar/" /></li>
+                                            <li> $2 <p id="end">albertsons belgrade</p>Wells and domestics 5-7pm - <SitePopover calculateRoute= {this.calculateRoute} siteTitle="The Crystal" imgUrl="http://media.liveauctiongroup.net/i/27338/24151529_1.jpg?v=8D33FD3D09B7430" siteUrl="https://www.facebook.com/TheCrystalBar/" /></li>
                                             <li> $2.75 Domestics, $2.75 Wells, $2.25 PBR Cans 4-7pm - <SitePopover siteTitle="The Legion" imgUrl="http://bozemanamericanlegion.org/yahoo_site_admin/assets/images/americanlegionlogo.10384110_std.jpg" siteUrl="http://www.bozemanamericanlegion.org/" /></li>
                                             {/* <li>$1 Off all drinks, $2 off Moscow Mules - 3-6pm - The Bacchus Pub<SitePopover siteTitle="" imgUrl="" siteUrl=""/></li> */}
                                             <li>$2.49 Wells $2.99 Cocktails 2.99 or cheaper on all beers $2.99 House Wine - 4-7pm - <SitePopover siteTitle="Old Chicago" imgUrl="http://kdth.radiodubuque.com/wp-content/uploads/sites/2/2017/11/Old-Chicago.jpg" siteUrl="https://oldchicago.com/locations/bozeman" /></li>
