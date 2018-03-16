@@ -4,15 +4,40 @@ import classnames from 'classnames';
 import SitePopover from '../modal/modal.js'
 import "./moosetabs.css";
 
+const google = window.google;
+var map, infoWindow;
+var pos
+
+
 export default class MooseTabs extends React.Component {
     constructor(props) {
         super(props);
 
         this.toggle = this.toggle.bind(this);
+        this.calculateRoute = this.calculateRoute.bind(this);
+        this.calculateAndDisplayRoute = this.calculateAndDisplayRoute.bind(this);
+        this.directionsService = new google.maps.DirectionsService();
+        this.directionsDisplay = new google.maps.DirectionsRenderer();
+    
         this.state = {
             activeTab: '1'
         };
     }
+
+    calculateAndDisplayRoute(directionsService, directionsDisplay) {
+        debugger
+        directionsService.route({
+          origin: {lat:pos.lat, lng:pos.lng},
+          destination: 'albertson bozeman',
+          travelMode: 'DRIVING'
+        }, function (response, status) {
+          if (status === 'OK') {
+            directionsDisplay.setDirections(response);
+          } else {
+            window.alert('Directions request failed due to ' + status);
+          }
+        });
+      }
 
     toggle(tab) {
         if (this.state.activeTab !== tab) {
@@ -21,6 +46,47 @@ export default class MooseTabs extends React.Component {
             });
         }
     }
+    calculateRoute() {
+        debugger
+        map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 12,
+            center: { lat: 45.676998, lng: -111.042931 }
+          });
+      
+            infoWindow = new google.maps.InfoWindow();
+
+            if (navigator.geolocation) {
+                debugger
+                navigator.geolocation.getCurrentPosition(function (position) {
+                    pos = {
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude
+                    };
+                    infoWindow.setPosition(pos);
+                    infoWindow.setContent('Your Are Here');
+                    infoWindow.open(map);
+                    map.setCenter(pos);
+                }, function () {
+                    handleLocationError(true, infoWindow, map.getCenter());
+                });
+            } else {
+                // Browser doesn't support Geolocation
+                handleLocationError(false, infoWindow, map.getCenter());
+            }
+            debugger
+            function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+                infoWindow.setPosition(pos);
+                infoWindow.setContent(browserHasGeolocation ?
+                    'Error: The Geolocation service failed.' :
+                    'Error: Your browser doesn\'t support geolocation.');
+                infoWindow.open(map);
+            }
+            this.directionsDisplay.setMap(map);
+            this.calculateAndDisplayRoute(this.directionsService, this.directionsDisplay)
+            
+        }
+    
+
     render() {
         return (
             <div id="moosetabs-div">
@@ -30,7 +96,7 @@ export default class MooseTabs extends React.Component {
                             className={classnames({ active: this.state.activeTab === '1' })}
                             onClick={() => { this.toggle('1'); }}
                         >
-                            Everyday
+                            Mon - Fri
             </NavLink>
                     </NavItem>
                     <NavItem>
@@ -38,7 +104,7 @@ export default class MooseTabs extends React.Component {
                             className={classnames({ active: this.state.activeTab === '2' })}
                             onClick={() => { this.toggle('2'); }}
                         >
-                            Every Weekday
+                            7 Days A Week
             </NavLink>
                     </NavItem>
                     <NavItem>
@@ -101,12 +167,12 @@ export default class MooseTabs extends React.Component {
                 <TabContent activeTab={this.state.activeTab}>
                     <TabPane tabId="1">
                         <Row>
-                            <Col sm="6">
+                            <Col sm="12">
                                 <Card body>
                                     <CardTitle>Every Weekday Specials</CardTitle>
                                     <CardText>
-                                        <div id="moosetabs-text">
-                                            <li> $2 Wells and domestics 5-7pm - <SitePopover siteTitle="The Crystal" imgUrl="http://media.liveauctiongroup.net/i/27338/24151529_1.jpg?v=8D33FD3D09B7430" siteUrl="https://www.facebook.com/TheCrystalBar/" /></li>
+                                        <div id="moosetabs-text" className="mappy">
+                                            <li> $2 Wells and domestics 5-7pm - <SitePopover calculateRoute= {this.calculateRoute} siteTitle="The Crystal" imgUrl="http://media.liveauctiongroup.net/i/27338/24151529_1.jpg?v=8D33FD3D09B7430" siteUrl="https://www.facebook.com/TheCrystalBar/" /></li>
                                             <li> $2.75 Domestics, $2.75 Wells, $2.25 PBR Cans 4-7pm - <SitePopover siteTitle="The Legion" imgUrl="http://bozemanamericanlegion.org/yahoo_site_admin/assets/images/americanlegionlogo.10384110_std.jpg" siteUrl="http://www.bozemanamericanlegion.org/" /></li>
                                             {/* <li>$1 Off all drinks, $2 off Moscow Mules - 3-6pm - The Bacchus Pub<SitePopover siteTitle="" imgUrl="" siteUrl=""/></li> */}
                                             <li>$2.49 Wells $2.99 Cocktails 2.99 or cheaper on all beers $2.99 House Wine - 4-7pm - <SitePopover siteTitle="Old Chicago" imgUrl="http://kdth.radiodubuque.com/wp-content/uploads/sites/2/2017/11/Old-Chicago.jpg" siteUrl="https://oldchicago.com/locations/bozeman" /></li>
@@ -114,6 +180,7 @@ export default class MooseTabs extends React.Component {
                                             <li>$1 off Drafts, $2.5 single $3.75 Double wells - 3:17 - 6:17pm - <SitePopover siteTitle="Pub 317" imgUrl="http://www.runtothepub.com/uploads/2/4/4/3/24437128/317-logo_orig.jpg" siteUrl="http://www.pub317.com/" /></li>
                                             <li>Doubles for Singles - 4-9pm - <SitePopover siteTitle="Bar IX" imgUrl="https://www.slamfestivals.org/wp-content/uploads/2015/08/Bar-IX-Montana-Logo-blank-back.jpg" siteUrl="http://bar-ix.com/" /></li>
                                         </div>
+                                        <div id='map'className="mappy">hey</div>
                                     </CardText>
                                 </Card>
                             </Col>

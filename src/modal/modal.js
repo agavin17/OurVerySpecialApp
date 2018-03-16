@@ -31,7 +31,7 @@ export default class SitePopover extends React.Component {
                             </td>
                             <tr>
                                 <button className="modal-buttons"><a className="website-anchor" href={this.props.siteUrl} target="_blank" rel="noopener noreferrer">Website</a></button>
-                                <button className="modal-buttons">Take Me There!</button>
+                                <button className="modal-buttons" onClick={this.props.calculateRoute}>Take Me There!</button>
                             </tr>
                         </table>
                     </ModalBody>

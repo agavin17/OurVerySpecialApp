@@ -11,9 +11,27 @@ li {
     margin-top: 10px;
     padding:10px;
     /* margin: -20px */
+    background-color: rgba(56, 56, 56, 0.507);
+    box-shadow: 2px 2px 10px rgb(0, 0, 0);
+    color:rgb(190, 190, 190);
+    background: linear-gradient(to bottom right, #484f4f, #707070);
+
 }
 
 #moosetabs-text {
     padding: 10px;
 
+}
+
+/* .site-popover {
+    background-color: black !important;
+} */
+
+.mappy {
+    float:left; 
+}
+
+#map {
+    width: 30vw;
+    height: 30vw;
 }
