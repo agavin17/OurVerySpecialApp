@@ -7,12 +7,12 @@ import axios from "axios";
 
 const google = window.google;
 var map, infoWindow;
-var pos
+var pos;
+var promise1;
 
 export default class MooseTabs extends React.Component {
     constructor(props) {
         super(props);
-
         this.toggle = this.toggle.bind(this);
         this.calculateRoute = this.calculateRoute.bind(this);
         this.calculateAndDisplayRoute = this.calculateAndDisplayRoute.bind(this);
@@ -23,24 +23,13 @@ export default class MooseTabs extends React.Component {
         this.state = {
             activeTab: '1',
             work: "",
-            myLng:"",
-            myLat:""
+            myLatLng: ""
         };
     }
 
     calculateAndDisplayRoute(directionsService, directionsDisplay) {
-        debugger
-        navigator.geolocation.getCurrentPosition(function (position) {
-            console.log(position)
-            debugger
-            pos = {
-                lat: position.coords.latitude,
-                lng: position.coords.longitude
-            };
-        })
         directionsService.route({
-
-            origin: { lat: pos.lat, lng: pos.lng },
+            origin: this.state.myLatLng,
             destination: "albertsons bozeman",
             travelMode: 'DRIVING'
         }, function (response, status) {
@@ -60,29 +49,27 @@ export default class MooseTabs extends React.Component {
         }
     }
 
-
     getLatLng() {
-        new Promise((resolve, reject)=>{
-            axios.get("https://maps.googleapis.com/maps/api/geocode/json?address=bozeman+montana&key=AIzaSyC_0EOflrvI8I4KszxAbOTlS85G4RAAyWk").then((result) => {
-                console.log(result)
-                this.setState({
-                    myLng:result.data.results[0].geometry.location.lng,
-                    myLat:result.data.results[0].geometry.location.lat
-                })
+        axios.get("https://maps.googleapis.com/maps/api/geocode/json?address=bozeman+montana&key=AIzaSyC_0EOflrvI8I4KszxAbOTlS85G4RAAyWk").then((result) => {
+            console.log(result.data.results[0].geometry.location.lat)
+            this.setState({
+                myLatLng: { lat: result.data.results[0].geometry.location.lat, lng: result.data.results[0].geometry.location.lng }
             })
-            resolve()
         })
-      
     }
 
-
     calculateRoute() {
-        this.getLatLng().then((result)=>{
-            map = new google.maps.Map(document.getElementById('map'), {
-                center: { lat:this.state.myLat, lng:this.state.myLng },
-                zoom: 12
-            });
-        })
+        map = new google.maps.Map(document.getElementById('map'), {
+            center: this.state.myLatLng,
+            zoom: 12
+        });
+
+        var marker = new google.maps.Marker({
+            position: this.state.myLatLng,
+            map: map,
+            title: 'Hello World!'
+        });
+
         // map = new google.maps.Map(document.getElementById('map'), {
         //     center: "bozeman, mt",
         //     zoom: 12
@@ -117,51 +104,13 @@ export default class MooseTabs extends React.Component {
         //         'Error: Your browser doesn\'t support geolocation.');
         //     infoWindow.open(map);
         // }
-
-
-
-
-
-        // infoWindow = new google.maps.InfoWindow();
-
-        // if (navigator.geolocation) {
-        //     debugger
-        //     navigator.geolocation.getCurrentPosition(function (position) {
-        //         pos = {
-        //             lat: position.coords.latitude,
-        //             lng: position.coords.longitude
-        //         };
-        //         infoWindow.setPosition(pos);
-        //         infoWindow.setContent('Your Are Here');
-        //         infoWindow.open(map);
-        //         map.setCenter(pos);
-        //         resolve()
-        //     }, function () {
-        //         handleLocationError(true, infoWindow, map.getCenter());
-        //     });
-        // } else {
-        //     // Browser doesn't support Geolocation
-        //     handleLocationError(false, infoWindow, map.getCenter());
-        // }
-        // function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-        //     infoWindow.setPosition(pos);
-        //     infoWindow.setContent(browserHasGeolocation ?
-        //         'Error: The Geolocation service failed.' :
-        //         'Error: Your browser doesn\'t support geolocation.');
-        //     infoWindow.open(map);
-        // }
-
-
-        // this.directionsDisplay.setMap(map);
-        // this.calculateAndDisplayRoute(this.directionsService, this.directionsDisplay)
     }
-
 
     render() {
 
         return (
             <div id="moosetabs-div">
-            <button onClick={this.getLatLng}>get lat lng</button>
+                <button onClick={this.getLatLng}>get lat lng</button>
                 <Nav tabs>
                     <NavItem>
                         <NavLink
