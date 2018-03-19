@@ -28,7 +28,7 @@ export default class Signup extends React.Component {
     }
 
     signUp() {
-        console.log(this.state.username)
+        // console.log(this.state.username)
         axios.post("/signUpData", { username: this.state.username, password: this.state.password, number: this.state.number }).then((result) => {
             if (result.data === "Sign Up Successful") {
                 this.setState({
