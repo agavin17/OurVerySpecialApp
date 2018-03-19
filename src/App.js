@@ -28,6 +28,23 @@ export default class App extends Component {
     }
   }
 
+sendFillingAlert(){
+  axios.post("/textFilling", {username:this.state.username, number:this.state.number, token: localStorage.getItem("token")}).then((result)=>{
+    this.setState({
+      fillingSubscribe: result.data.fillingSubscribe,
+      userProfile:
+      <div id="profile-box">
+            <p><div className="profile-base-text">Username: </div>{this.state.username}</p>
+            <p><div className="profile-base-text">Number: </div>{result.data.number}</p>
+            <p><div className="profile-base-text">Your Subscriptions:</div></p><p className="profile-subs">{result.data.tncSubscribe}</p>
+            <p className="profile-subs">{result.data.heebsSubscribe}</p><p className="profile-subs">{result.data.davesSubscribe}</p>
+            <button id="test-sms" className="profile-buttons" onClick={this.testSms}>Test SMS</button>
+            <button id="stop-sms" className="profile-buttons" onClick={this.stopSms}>Stop All SMS</button>
+          </div>
+    })
+  })
+}
+
   sendTnCText() {
     axios.post("/textTnC", { username: this.state.username, number: this.state.number, token: localStorage.getItem("token") }).then((result) => {
       console.log(result.data)
