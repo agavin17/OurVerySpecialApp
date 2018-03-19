@@ -12,6 +12,7 @@ import {
   DropdownItem
 } from 'reactstrap';
 import Signin from "../signin/signin.js";
+import Biz from "../business/business.js";
 import Signup from "../signup/signup.js";
 import Profile from "../profile/profile.js";
 import "./navbar.css";
@@ -65,6 +66,9 @@ export default class Navbar2 extends React.Component {
                     </DropdownItem>
                     <DropdownItem>
                       <Signup />
+                    </DropdownItem>
+                    <DropdownItem>
+                      <Biz />
                     </DropdownItem>
                     <DropdownItem divider />
                     <DropdownItem>
