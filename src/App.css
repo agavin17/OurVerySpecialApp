@@ -1,6 +1,6 @@
 .App {
-  background: linear-gradient(to bottom right, #484f4f, #a8a8a8);
-  font-family: 'Times New Roman', Times, serif;
+  /* background: linear-gradient(to bottom right, #484f4f, #a8a8a8); */
+  /* font-family: 'Times New Roman', Times, serif; */
   width:auto;
   overflow-x: scroll;
 }
@@ -60,7 +60,7 @@
   border-radius:2em;
   box-sizing: border-box;
   text-decoration:none;
-  font-family:'Roboto',sans-serif;
+  /* font-family:'Roboto',sans-serif; */
   font-weight:300;
   color:rgb(255, 255, 255);
   background-color: rgba(28, 85, 158, 0.800);

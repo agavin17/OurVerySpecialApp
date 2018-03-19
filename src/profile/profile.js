@@ -11,7 +11,7 @@ export default class Profile extends Component {
                     {this.props.userProfile}
                 </div>
                 <div id="welcome-logo">
-                    <h4>Welcome to:</h4><br />
+                    {/* <h4>Welcome to:</h4><br /> */}
                     <img src={require("../project-images/logo.png")} className="App-logo" alt="logo" /><br />
                 </div>
                 {/* <Photos/> */}

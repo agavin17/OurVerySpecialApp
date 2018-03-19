@@ -32,7 +32,7 @@
 }
 
 .modal-buttons {
-    font-family: 'Raleway', sans-serif;
+    /* font-family: 'Raleway', sans-serif; */
     background-color:rgba(245, 245, 245, 0.500);
     border:none;
     border-radius: 50px 50px;

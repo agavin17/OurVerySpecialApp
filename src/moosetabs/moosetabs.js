@@ -3,11 +3,11 @@ import { TabContent, TabPane, Nav, NavItem, NavLink, Card, CardTitle, CardText, 
 import classnames from 'classnames';
 import SitePopover from '../modal/modal.js';
 import "./moosetabs.css";
+import axios from "axios";
 
 const google = window.google;
-var map;
-var infoWindow;
-var pos;
+var map, infoWindow;
+var pos
 
 export default class MooseTabs extends React.Component {
     constructor(props) {
@@ -18,15 +18,28 @@ export default class MooseTabs extends React.Component {
         this.calculateAndDisplayRoute = this.calculateAndDisplayRoute.bind(this);
         this.directionsService = new google.maps.DirectionsService();
         this.directionsDisplay = new google.maps.DirectionsRenderer();
+        this.getLatLng = this.getLatLng.bind(this);
 
         this.state = {
             activeTab: '1',
-            work: ""
+            work: "",
+            myLng:"",
+            myLat:""
         };
     }
 
     calculateAndDisplayRoute(directionsService, directionsDisplay) {
+        debugger
+        navigator.geolocation.getCurrentPosition(function (position) {
+            console.log(position)
+            debugger
+            pos = {
+                lat: position.coords.latitude,
+                lng: position.coords.longitude
+            };
+        })
         directionsService.route({
+
             origin: { lat: pos.lat, lng: pos.lng },
             destination: "albertsons bozeman",
             travelMode: 'DRIVING'
@@ -46,61 +59,109 @@ export default class MooseTabs extends React.Component {
             });
         }
     }
+
+
+    getLatLng() {
+        new Promise((resolve, reject)=>{
+            axios.get("https://maps.googleapis.com/maps/api/geocode/json?address=bozeman+montana&key=AIzaSyC_0EOflrvI8I4KszxAbOTlS85G4RAAyWk").then((result) => {
+                console.log(result)
+                this.setState({
+                    myLng:result.data.results[0].geometry.location.lng,
+                    myLat:result.data.results[0].geometry.location.lat
+                })
+            })
+            resolve()
+        })
+      
+    }
+
+
     calculateRoute() {
-        var promise1 = new Promise((resolve, reject) => {
-            var map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 12,
-                center: { lat: 45.676998, lng: -111.042931 }
+        this.getLatLng().then((result)=>{
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: { lat:this.state.myLat, lng:this.state.myLng },
+                zoom: 12
             });
-
-            infoWindow = new google.maps.InfoWindow();
-
-            if (navigator.geolocation) {
-                debugger
-                navigator.geolocation.getCurrentPosition(function (position) {
-                    pos = {
-                        lat: position.coords.latitude,
-                        lng: position.coords.longitude
-                    };
-                    infoWindow.setPosition(pos);
-                    infoWindow.setContent('Your Are Here');
-                    infoWindow.open(map);
-                    map.setCenter(pos);
-                    resolve()
-                }, function () {
-                    handleLocationError(true, infoWindow, map.getCenter());
-                });
-            } else {
-                // Browser doesn't support Geolocation
-                handleLocationError(false, infoWindow, map.getCenter());
-            }
-            function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-                infoWindow.setPosition(pos);
-                infoWindow.setContent(browserHasGeolocation ?
-                    'Error: The Geolocation service failed.' :
-                    'Error: Your browser doesn\'t support geolocation.');
-                infoWindow.open(map);
-            }
         })
-        promise1.then(() => {
-            this.directionsDisplay.setMap(map);
-            this.calculateAndDisplayRoute(this.directionsService, this.directionsDisplay)
-        })
-        this.directionsDisplay.setMap(map);
-        this.calculateAndDisplayRoute(this.directionsService, this.directionsDisplay)
+        // map = new google.maps.Map(document.getElementById('map'), {
+        //     center: "bozeman, mt",
+        //     zoom: 12
+        // });
+        // infoWindow = new google.maps.InfoWindow;
+
+        // // Try HTML5 geolocation.
+        // if (navigator.geolocation) {
+        //     navigator.geolocation.getCurrentPosition(function (position) {
+        //         var pos = {
+        //             lat: position.coords.latitude,
+        //             lng: position.coords.longitude
+        //         };
+
+        //         infoWindow.setPosition(pos);
+        //         infoWindow.setContent('Location found.');
+        //         infoWindow.open(map);
+        //         map.setCenter(pos);
+        //     }, function () {
+        //         handleLocationError(true, infoWindow, map.getCenter());
+        //     });
+        // } else {
+        //     // Browser doesn't support Geolocation
+        //     handleLocationError(false, infoWindow, map.getCenter());
+        // }
+
+
+        // function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+        //     infoWindow.setPosition(pos);
+        //     infoWindow.setContent(browserHasGeolocation ?
+        //         'Error: The Geolocation service failed.' :
+        //         'Error: Your browser doesn\'t support geolocation.');
+        //     infoWindow.open(map);
+        // }
+
+
+
+
+
+        // infoWindow = new google.maps.InfoWindow();
+
+        // if (navigator.geolocation) {
+        //     debugger
+        //     navigator.geolocation.getCurrentPosition(function (position) {
+        //         pos = {
+        //             lat: position.coords.latitude,
+        //             lng: position.coords.longitude
+        //         };
+        //         infoWindow.setPosition(pos);
+        //         infoWindow.setContent('Your Are Here');
+        //         infoWindow.open(map);
+        //         map.setCenter(pos);
+        //         resolve()
+        //     }, function () {
+        //         handleLocationError(true, infoWindow, map.getCenter());
+        //     });
+        // } else {
+        //     // Browser doesn't support Geolocation
+        //     handleLocationError(false, infoWindow, map.getCenter());
+        // }
+        // function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+        //     infoWindow.setPosition(pos);
+        //     infoWindow.setContent(browserHasGeolocation ?
+        //         'Error: The Geolocation service failed.' :
+        //         'Error: Your browser doesn\'t support geolocation.');
+        //     infoWindow.open(map);
+        // }
+
+
+        // this.directionsDisplay.setMap(map);
+        // this.calculateAndDisplayRoute(this.directionsService, this.directionsDisplay)
     }
 
 
     render() {
-        navigator.geolocation.getCurrentPosition(function (position) {
-            pos = {
-                lat: position.coords.latitude,
-                lng: position.coords.longitude
-            };
-        })
 
         return (
             <div id="moosetabs-div">
+            <button onClick={this.getLatLng}>get lat lng</button>
                 <Nav tabs>
                     <NavItem>
                         <NavLink

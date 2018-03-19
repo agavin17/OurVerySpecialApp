@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Raleway");
+/* @import url("https://fonts.googleapis.com/css?family=Raleway"); */
 
 .nav-item {
     font-size: 20px;
@@ -11,16 +11,16 @@
 
 .nav-item:hover{
     color:rgb(255, 255, 255);
-    background: #36272ccc;
+    background: #1b1b1bcc;
 }
 
 .active.nav-link {
-    background: #36272ccc!important;
+    background: #261cacbd!important;
     color: white!important;
 }
 
 .tabsBtns {
-    font-family: 'Raleway', sans-serif;
+    /* font-family: 'Raleway', sans-serif; */
     background-color:rgba(245, 245, 245, 0.500);
     border:none;
     border-radius: 50px 50px;
@@ -60,26 +60,26 @@
     float: left;
     width:33.33%;
     color:white;
-    background: #563f46cc;
+    background: #000000cc;
 }
 
 .nav-item2 {
     float: left;
     width: 33.33%;
-    background: #563f46cc;
+    background: #000000cc;
     color:white;
 }
 
 .nav-item3 {
     float: left;
     width: 33.33%;
-    background: #563f46cc;
+    background: #000000cc;
     color:white;
 }
 
 #tabs {
     text-align: center;
-    font-family: 'Raleway', sans-serif;
+    /* font-family: 'Raleway', sans-serif; */
     text-shadow: 2px 2px 10px black;
 }
 

@@ -6,7 +6,7 @@
 #signin-button {
     background-color: #343a40;
     border: none;
-    box-shadow: 2px 2px 8px rgb(0, 0, 0)
+    box-shadow: 1px 1px 5px rgb(0, 0, 0)
 
 }
 
@@ -15,7 +15,7 @@
 }
 
 .modal-parts {
-    background-color: #8ca3a3!important;
+    background-color: #ffffff!important;
     border: none!important;
     color: rgb(0, 0, 0);
 }
