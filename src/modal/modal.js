@@ -26,10 +26,10 @@ export default class SitePopover extends React.Component {
     render() {
         return (
             <span id="site-modal-main">
-                <Button onClick={this.toggle}>{this.props.siteTitle}</Button>
+                <Button id="modalToggle" onClick={this.toggle}>{this.props.siteTitle}</Button>
                 <Modal id="modal-main" isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
                     <ModalBody>
-                        <h3>{this.props.siteTitle}</h3>
+                        <button className="modal-buttons" id='titleButton'>{this.props.siteTitle}</button>
                         <table id="modal-table">
                             <td>
                                 <img id="modal-img" src={this.props.imgUrl} alt={this.props.siteTitle} />

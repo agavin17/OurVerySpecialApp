@@ -4,7 +4,7 @@
     box-shadow: 10px 10px 10px black;
     max-width: 250px;
     padding: 10px;
-    border: solid grey 5px;
+    border: solid rgb(59, 59, 59) 3px;
 }
 
 #modal-main {
@@ -43,9 +43,13 @@
 }
 
 .modal-body {
-    background-color: rgb(95, 95, 95);
+    background-color:rgba(255, 0, 0, 0);
 }
 
-h3 {
-    text-decoration: underline;
+#modalToggle {
+    background-color: rgb(61, 189, 221);
+}
+
+#titleButton {
+    font-size: 28px!important;
 }
